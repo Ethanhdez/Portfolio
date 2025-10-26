@@ -81,26 +81,28 @@
       display: flex;
       align-items: center;
       justify-content: flex-start;
-      padding-left: 10%;
+      padding-left: 5%; /* Más a la izquierda */
     }
 
     .hero-content {
-      max-width: 500px;
+      max-width: 600px;
       text-align: left;
-      animation: fadeIn 1.5s ease-in-out;
     }
 
     .hero h1 {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: 3rem;
-      margin-bottom: 1rem;
+      font-size: 3.5rem; /* Un poco más grande */
+      font-weight: 400; /* No bold */
       color: #fff;
+      line-height: 1.2;
+      margin-bottom: 1rem;
     }
 
     .hero p {
       font-size: 1.2rem;
-      margin-bottom: 1.5rem;
       color: #fff;
+      white-space: nowrap; /* Mantener en una sola línea */
+      margin-bottom: 1.5rem;
     }
 
     .btn-primary {
@@ -310,7 +312,7 @@
 
   <section id="inicio" class="hero">
     <div class="hero-content">
-      <h1>Express Yourself with Style</h1>
+      <h1>Express Yourself<br>with Style</h1>
       <p>Exclusive urban fashion for those seeking the premium.</p>
       <a href="#coleccion" class="btn-primary">View Collection</a>
     </div>
