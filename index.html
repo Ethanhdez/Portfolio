@@ -139,10 +139,10 @@
   <header>
     <h1>Ethan H.</h1>
     <nav>
-      <a href="#about">Sobre mí / About</a>
-      <a href="#projects">Proyectos / Projects</a>
-      <a href="#skills">Habilidades / Skills</a>
-      <a href="#contact">Contacto / Contact</a>
+      <a href="#about" id="nav-about">Sobre mí / About</a>
+      <a href="#projects" id="nav-projects">Proyectos / Projects</a>
+      <a href="#skills" id="nav-skills">Habilidades / Skills</a>
+      <a href="#contact" id="nav-contact">Contacto / Contact</a>
     </nav>
     <span class="lang-toggle" id="toggleLang">ES / EN</span>
   </header>
@@ -153,35 +153,28 @@
       <h2 id="intro-title">Hola, soy Ethan Hernández</h2>
       <p id="intro-text">
         Estudiante de programación especializado en desarrollo web full stack.  
-        Apasionado por la tecnología, la creatividad y el aprendizaje constante.  
-        /  
-        Programming student specializing in full stack web development.  
-        Passionate about technology, creativity, and continuous learning.
+        Apasionado por la tecnología, la creatividad y el aprendizaje constante.
       </p>
     </div>
   </section>
 
   <section id="projects">
-    <h3>Proyectos / Projects</h3>
+    <h3 id="projects-title">Proyectos / Projects</h3>
     <div class="projects">
       <div class="card">
         <h4>DULCE ABEJA</h4>
-        <p>
+        <p id="project1-desc">
           Sitio conceptual para una marca de miel artesanal y sostenible.  
-          Incluye tienda en línea, blog educativo y diseño auténtico.  
-          /  
-          Concept website for an artisanal honey brand with an online store and educational blog.
+          Incluye tienda en línea, blog educativo y diseño auténtico.
         </p>
         <a class="pdf-link" href="DulceAbeja.pdf" target="_blank">📄 Ver PDF / View PDF</a>
       </div>
 
       <div class="card">
         <h4>URBAN AURA</h4>
-        <p>
+        <p id="project2-desc">
           Página web para marca conceptual de moda urbana premium.  
-          Incluye catálogo, carrito de compras y diseño moderno.  
-          /  
-          Concept e-commerce for a premium urban fashion brand with modern design.
+          Incluye catálogo, carrito de compras y diseño moderno.
         </p>
         <a class="pdf-link" href="UrbanAura.pdf" target="_blank">📄 Ver PDF / View PDF</a>
       </div>
@@ -189,19 +182,19 @@
   </section>
 
   <section id="skills">
-    <h3>Habilidades / Skills</h3>
+    <h3 id="skills-title">Habilidades / Skills</h3>
     <div class="skills">
-      <div class="card"><h4>Frontend</h4><p>HTML, CSS, JavaScript</p></div>
-      <div class="card"><h4>Backend</h4><p>PHP, C++, Python (aprendiendo)</p></div>
-      <div class="card"><h4>Bases de datos</h4><p>MySQL</p></div>
-      <div class="card"><h4>Herramientas</h4><p>VS Code, WordPress, GitHub</p></div>
+      <div class="card"><h4 id="skill-frontend">Frontend</h4><p>HTML, CSS, JavaScript</p></div>
+      <div class="card"><h4 id="skill-backend">Backend</h4><p id="backend-desc">PHP, C++, Python (aprendiendo)</p></div>
+      <div class="card"><h4 id="skill-db">Bases de datos</h4><p>MySQL</p></div>
+      <div class="card"><h4 id="skill-tools">Herramientas</h4><p>VS Code, WordPress, GitHub</p></div>
     </div>
   </section>
 
   <section id="contact">
-    <h3>Contacto / Contact</h3>
+    <h3 id="contact-title">Contacto / Contact</h3>
     <p>📧 <a href="mailto:ethanhdez.1304@icloud.com">ethanhdez.1304@icloud.com</a></p>
-    <p>🔗 LinkedIn: próximamente</p>
+    <p>🔗 <a href="https://www.linkedin.com/in/ethan-hernandez-245576360" target="_blank">LinkedIn</a></p>
   </section>
 
   <footer>
@@ -209,19 +202,85 @@
   </footer>
 
   <script>
-    // Simple bilingual toggle
+    // Bilingual texts
+    const texts = {
+      es: {
+        navAbout: 'Sobre mí',
+        navProjects: 'Proyectos',
+        navSkills: 'Habilidades',
+        navContact: 'Contacto',
+        introTitle: 'Hola, soy Ethan Hernández',
+        introText: 'Estudiante de programación especializado en desarrollo web full stack. Apasionado por la tecnología, la creatividad y el aprendizaje constante.',
+        projectsTitle: 'Proyectos',
+        project1Desc: 'Sitio conceptual para una marca de miel artesanal y sostenible. Incluye tienda en línea, blog educativo y diseño auténtico.',
+        project2Desc: 'Página web para marca conceptual de moda urbana premium. Incluye catálogo, carrito de compras y diseño moderno.',
+        skillsTitle: 'Habilidades',
+        skillFrontend: 'Frontend',
+        skillBackend: 'Backend',
+        backendDesc: 'PHP, C++, Python (aprendiendo)',
+        skillDb: 'Bases de datos',
+        skillTools: 'Herramientas',
+        contactTitle: 'Contacto'
+      },
+      en: {
+        navAbout: 'About',
+        navProjects: 'Projects',
+        navSkills: 'Skills',
+        navContact: 'Contact',
+        introTitle: "Hi, I'm Ethan Hernández",
+        introText: 'Programming student specializing in full stack web development. Passionate about technology, creativity, and continuous learning.',
+        projectsTitle: 'Projects',
+        project1Desc: 'Concept website for an artisanal honey brand with an online store and educational blog.',
+        project2Desc: 'Concept e-commerce for a premium urban fashion brand with modern design.',
+        skillsTitle: 'Skills',
+        skillFrontend: 'Frontend',
+        skillBackend: 'Backend',
+        backendDesc: 'PHP, C++, Python (learning)',
+        skillDb: 'Databases',
+        skillTools: 'Tools',
+        contactTitle: 'Contact'
+      }
+    };
+
+    // Elements
     const toggle = document.getElementById('toggleLang');
+    const navAbout = document.getElementById('nav-about');
+    const navProjects = document.getElementById('nav-projects');
+    const navSkills = document.getElementById('nav-skills');
+    const navContact = document.getElementById('nav-contact');
     const introTitle = document.getElementById('intro-title');
     const introText = document.getElementById('intro-text');
+    const projectsTitle = document.getElementById('projects-title');
+    const project1Desc = document.getElementById('project1-desc');
+    const project2Desc = document.getElementById('project2-desc');
+    const skillsTitle = document.getElementById('skills-title');
+    const skillFrontend = document.getElementById('skill-frontend');
+    const skillBackend = document.getElementById('skill-backend');
+    const backendDesc = document.getElementById('backend-desc');
+    const skillDb = document.getElementById('skill-db');
+    const skillTools = document.getElementById('skill-tools');
+    const contactTitle = document.getElementById('contact-title');
+
     let lang = 'es';
 
     toggle.addEventListener('click', () => {
       lang = lang === 'es' ? 'en' : 'es';
-      if (lang === 'en') {
-        introTitle.textContent = "Hi, I'm Ethan Hernández";
-      } else {
-        introTitle.textContent = "Hola, soy Ethan Hernández";
-      }
+      navAbout.textContent = texts[lang].navAbout;
+      navProjects.textContent = texts[lang].navProjects;
+      navSkills.textContent = texts[lang].navSkills;
+      navContact.textContent = texts[lang].navContact;
+      introTitle.textContent = texts[lang].introTitle;
+      introText.textContent = texts[lang].introText;
+      projectsTitle.textContent = texts[lang].projectsTitle;
+      project1Desc.textContent = texts[lang].project1Desc;
+      project2Desc.textContent = texts[lang].project2Desc;
+      skillsTitle.textContent = texts[lang].skillsTitle;
+      skillFrontend.textContent = texts[lang].skillFrontend;
+      skillBackend.textContent = texts[lang].skillBackend;
+      backendDesc.textContent = texts[lang].backendDesc;
+      skillDb.textContent = texts[lang].skillDb;
+      skillTools.textContent = texts[lang].skillTools;
+      contactTitle.textContent = texts[lang].contactTitle;
     });
   </script>
 </body>
