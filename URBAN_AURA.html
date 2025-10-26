@@ -80,14 +80,13 @@
       background: url('https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
       display: flex;
       align-items: center;
-      justify-content: center;
-      text-align: center;
+      justify-content: flex-start;
+      padding-left: 10%;
     }
 
     .hero-content {
-      background: rgba(0, 0, 0, 0.6);
-      padding: 2rem;
-      border-radius: 1rem;
+      max-width: 500px;
+      text-align: left;
       animation: fadeIn 1.5s ease-in-out;
     }
 
@@ -95,17 +94,18 @@
       font-family: 'Bebas Neue', sans-serif;
       font-size: 3rem;
       margin-bottom: 1rem;
-      color: #00d4ff;
+      color: #fff;
     }
 
     .hero p {
       font-size: 1.2rem;
       margin-bottom: 1.5rem;
+      color: #fff;
     }
 
     .btn-primary {
-      background-color: #00d4ff;
-      color: #000;
+      background-color: #a855f7;
+      color: #fff;
       padding: 0.75rem 1.5rem;
       border-radius: 30px;
       text-decoration: none;
@@ -114,8 +114,8 @@
     }
 
     .btn-primary:hover {
-      background-color: #a855f7;
-      color: #fff;
+      background-color: #00d4ff;
+      color: #000;
     }
 
     /* Collection */
@@ -269,8 +269,8 @@
     /* Responsive */
     @media (max-width: 768px) {
       .hero {
-        flex-direction: column;
-        text-align: center;
+        padding-left: 5%;
+        text-align: left;
       }
 
       .products {
