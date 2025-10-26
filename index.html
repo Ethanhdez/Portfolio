@@ -1,228 +1,72 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ethan Hernández | Portfolio</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Inter', sans-serif;
-      scroll-behavior: smooth;
-    }
-
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      background: #0e0e11;
-      color: #e9e9ec;
+      font-family: 'Inter', sans-serif;
+      background-color: #0a0a0a;
+      color: #e6e6e6;
       line-height: 1.6;
     }
-
     header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1.5rem 4rem;
-      background: rgba(255,255,255,0.03);
-      backdrop-filter: blur(10px);
+      padding: 1.5rem 10%;
+      background: rgba(255,255,255,0.05);
       position: sticky;
       top: 0;
-      z-index: 100;
+      backdrop-filter: blur(10px);
     }
-
-    header h1 {
-      font-weight: 700;
-      color: #00b4d8;
-    }
-
+    header h1 { font-size: 1.5rem; font-weight: 600; }
     nav a {
-      color: #e9e9ec;
+      color: #e6e6e6;
+      margin: 0 10px;
       text-decoration: none;
-      margin: 0 1rem;
-      font-weight: 500;
       transition: color 0.3s;
     }
-
-    nav a:hover {
-      color: #00b4d8;
+    nav a:hover { color: #00ffff; }
+    .lang-btn {
+      border: none;
+      background: #00ffff;
+      color: #000;
+      padding: 5px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
     }
-
     section {
       padding: 4rem 10%;
-    }
-
-    .intro {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      gap: 2rem;
-    }
-
-    .intro img {
-      width: 180px;
-      height: 180px;
-      border-radius: 50%;
-      border: 3px solid #00b4d8;
-      object-fit: cover;
-    }
-
-    .intro h2 {
-      font-size: 2rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .intro p {
-      max-width: 600px;
+      max-width: 1000px;
       margin: auto;
     }
-
-    h3 {
-      margin-bottom: 1rem;
-      color: #00b4d8;
-    }
-
-    .skills, .projects {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    .hero {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
       gap: 2rem;
     }
-
-    .card {
-      background: rgba(255,255,255,0.05);
-      border-radius: 12px;
-      padding: 1.5rem;
-      transition: transform 0.3s;
+    .hero img {
+      width: 180px;
+      border-radius: 100%;
+      border: 3px solid #00ffff;
     }
-
-    .card:hover {
-      transform: translateY(-5px);
-    }
-
-    .card h4 {
-      color: #00b4d8;
+    .hero-text h2 {
+      font-size: 2rem;
+      color: #00ffff;
       margin-bottom: 0.5rem;
     }
-
-    .lang-toggle {
-      cursor: pointer;
-      color: #00b4d8;
-      font-size: 0.9rem;
+    .project, .skill {
+      margin-bottom: 1.5rem;
+      border-left: 3px solid #00ffff;
+      padding-left: 1rem;
     }
-
     footer {
       text-align: center;
       padding: 2rem;
-      border-top: 1px solid rgba(255,255,255,0.1);
-      color: #aaa;
-      font-size: 0.9rem;
-    }
-
-    a.pdf-link {
-      display: inline-block;
-      color: #00b4d8;
-      text-decoration: none;
-      margin-top: 0.5rem;
-      font-size: 0.9rem;
-    }
-
-    a.pdf-link:hover {
-      text-decoration: underline;
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <h1>Ethan H.</h1>
-    <nav>
-      <a href="#about">Sobre mí / About</a>
-      <a href="#projects">Proyectos / Projects</a>
-      <a href="#skills">Habilidades / Skills</a>
-      <a href="#contact">Contacto / Contact</a>
-    </nav>
-    <span class="lang-toggle" id="toggleLang">ES / EN</span>
-  </header>
-
-  <section id="about" class="intro">
-    <img src="photo.jpg" alt="Ethan Hernández photo">
-    <div>
-      <h2 id="intro-title">Hola, soy Ethan Hernández</h2>
-      <p id="intro-text">
-        Estudiante de programación especializado en desarrollo web full stack.  
-        Apasionado por la tecnología, la creatividad y el aprendizaje constante.  
-        /  
-        Programming student specializing in full stack web development.  
-        Passionate about technology, creativity, and continuous learning.
-      </p>
-    </div>
-  </section>
-
-  <section id="projects">
-    <h3>Proyectos / Projects</h3>
-    <div class="projects">
-      <div class="card">
-        <h4>DULCE ABEJA</h4>
-        <p>
-          Sitio conceptual para una marca de miel artesanal y sostenible.  
-          Incluye tienda en línea, blog educativo y diseño auténtico.  
-          /  
-          Concept website for an artisanal honey brand with an online store and educational blog.
-        </p>
-        <a class="pdf-link" href="DulceAbeja.pdf" target="_blank">📄 Ver PDF / View PDF</a>
-      </div>
-
-      <div class="card">
-        <h4>URBAN AURA</h4>
-        <p>
-          Página web para marca conceptual de moda urbana premium.  
-          Incluye catálogo, carrito de compras y diseño moderno.  
-          /  
-          Concept e-commerce for a premium urban fashion brand with modern design.
-        </p>
-        <a class="pdf-link" href="UrbanAura.pdf" target="_blank">📄 Ver PDF / View PDF</a>
-      </div>
-    </div>
-  </section>
-
-  <section id="skills">
-    <h3>Habilidades / Skills</h3>
-    <div class="skills">
-      <div class="card"><h4>Frontend</h4><p>HTML, CSS, JavaScript</p></div>
-      <div class="card"><h4>Backend</h4><p>PHP, C++, Python (aprendiendo)</p></div>
-      <div class="card"><h4>Bases de datos</h4><p>MySQL</p></div>
-      <div class="card"><h4>Herramientas</h4><p>VS Code, WordPress, GitHub</p></div>
-    </div>
-  </section>
-
-  <section id="contact">
-    <h3>Contacto / Contact</h3>
-    <p>📧 <a href="mailto:ethanhdez.1304@icloud.com">ethanhdez.1304@icloud.com</a></p>
-    <p>🔗 LinkedIn: próximamente</p>
-  </section>
-
-  <footer>
-    © 2025 Ethan Hernández — Portfolio
-  </footer>
-
-  <script>
-    // Simple bilingual toggle
-    const toggle = document.getElementById('toggleLang');
-    const introTitle = document.getElementById('intro-title');
-    const introText = document.getElementById('intro-text');
-    let lang = 'es';
-
-    toggle.addEventListener('click', () => {
-      lang = lang === 'es' ? 'en' : 'es';
-      if (lang === 'en') {
-        introTitle.textContent = "Hi, I'm Ethan Hernández";
-      } else {
-        introTitle.textContent = "Hola, soy Ethan Hernández";
-      }
-    });
-  </script>
-</body>
-</html>
+      background: rgb
