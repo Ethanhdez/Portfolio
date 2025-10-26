@@ -1,72 +1,98 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Ethan Hernández | Portfolio</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: #0a0a0a;
-      color: #e6e6e6;
-      line-height: 1.6;
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
+      background:#070708;color:#e9eef1;line-height:1.5;
+      -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
     }
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1.5rem 10%;
-      background: rgba(255,255,255,0.05);
-      position: sticky;
-      top: 0;
-      backdrop-filter: blur(10px);
+    header{position:sticky;top:0;z-index:40;background:rgba(255,255,255,0.02);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:space-between;padding:1rem 6%}
+    .brand{font-weight:700;color:#00d1ff}
+    nav a{color:inherit;text-decoration:none;margin:0 .6rem;font-weight:600;opacity:.95}
+    nav a:hover{color:#00d1ff}
+    .actions{display:flex;gap:.6rem;align-items:center}
+    .lang-btn{background:#00d1ff;color:#061018;border:none;padding:.45rem .8rem;border-radius:10px;cursor:pointer;font-weight:700}
+    main{padding:3.5rem 6%;max-width:1100px;margin:0 auto}
+    .hero{display:flex;gap:1.8rem;align-items:center;flex-wrap:wrap;margin-bottom:2rem}
+    .photo{width:160px;height:160px;border-radius:50%;overflow:hidden;border:3px solid #00d1ff;flex:0 0 160px}
+    .photo img{width:100%;height:100%;object-fit:cover;display:block}
+    .hero h1{font-size:1.6rem;color:#00d1ff;margin-bottom:.4rem}
+    .hero p{max-width:760px;color:#cfeaf3}
+    section{margin:2.25rem 0}
+    h2{color:#00d1ff;margin-bottom:.8rem;font-size:1.05rem}
+    .grid{display:grid;gap:1rem}
+    .projects .card,.skills .card{background:rgba(255,255,255,0.03);padding:1rem;border-radius:10px;transition:transform .18s}
+    .projects .card:hover,.skills .card:hover{transform:translateY(-6px)}
+    .card h3{margin-bottom:.4rem}
+    a.pdf-link{display:inline-block;margin-top:.6rem;color:#00d1ff;text-decoration:none;font-weight:600}
+    a.pdf-link:hover{text-decoration:underline}
+    footer{padding:2rem 6%;text-align:center;color:#99b6bf;border-top:1px solid rgba(255,255,255,0.03);margin-top:3rem}
+    /* responsive */
+    @media (min-width:900px){
+      .hero{align-items:center}
+      .hero-content{flex:1}
     }
-    header h1 { font-size: 1.5rem; font-weight: 600; }
-    nav a {
-      color: #e6e6e6;
-      margin: 0 10px;
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-    nav a:hover { color: #00ffff; }
-    .lang-btn {
-      border: none;
-      background: #00ffff;
-      color: #000;
-      padding: 5px 12px;
-      border-radius: 8px;
-      cursor: pointer;
-      font-weight: 600;
-    }
-    section {
-      padding: 4rem 10%;
-      max-width: 1000px;
-      margin: auto;
-    }
-    .hero {
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 2rem;
-    }
-    .hero img {
-      width: 180px;
-      border-radius: 100%;
-      border: 3px solid #00ffff;
-    }
-    .hero-text h2 {
-      font-size: 2rem;
-      color: #00ffff;
-      margin-bottom: 0.5rem;
-    }
-    .project, .skill {
-      margin-bottom: 1.5rem;
-      border-left: 3px solid #00ffff;
-      padding-left: 1rem;
-    }
-    footer {
-      text-align: center;
-      padding: 2rem;
-      background: rgb
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="brand" data-es="Ethan Hernández" data-en="Ethan Hernández">Ethan Hernández</div>
+
+    <nav aria-label="Main navigation">
+      <a href="#about" data-es="Sobre mí" data-en="About">Sobre mí</a>
+      <a href="#projects" data-es="Proyectos" data-en="Projects">Proyectos</a>
+      <a href="#skills" data-es="Habilidades" data-en="Skills">Habilidades</a>
+      <a href="#contact" data-es="Contacto" data-en="Contact">Contacto</a>
+    </nav>
+
+    <div class="actions">
+      <a id="linkedin-link" href="https://www.linkedin.com/in/ethan-hernandez-245576360" target="_blank" rel="noreferrer" data-es="LinkedIn" data-en="LinkedIn">LinkedIn</a>
+      <button id="langBtn" class="lang-btn" aria-pressed="false">EN</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- ABOUT -->
+    <section id="about" class="hero" aria-labelledby="about-title">
+      <div class="photo" aria-hidden="true">
+        <img src="photo.jpg" alt="Foto de Ethan Hernández">
+      </div>
+      <div class="hero-content">
+        <h1 id="about-title" data-es="Hola, soy Ethan" data-en="Hi, I'm Ethan">Hola, soy Ethan</h1>
+        <p id="about-desc"
+           data-es="Soy Técnico en Programación (CETis 100) especializado en desarrollo web full stack. Me interesa crear soluciones digitales funcionales, limpias y con buen diseño. Busco oportunidades como Full Stack / Frontend / Backend Developer."
+           data-en="I'm a Programming Technician (CETis 100) specialized in full-stack web development. I enjoy building functional, clean, well-designed digital solutions. Seeking opportunities as a Full Stack / Frontend / Backend Developer.">
+          Soy Técnico en Programación (CETis 100) especializado en desarrollo web full stack. Me interesa crear soluciones digitales funcionales, limpias y con buen diseño. Busco oportunidades como Full Stack / Frontend / Backend Developer.
+        </p>
+        <p style="margin-top:.6rem;color:#bcdbea">
+          <strong data-es="Ubicación:" data-en="Location:">Ubicación:</strong>
+          <span data-es="Tepic, Nayarit, México" data-en="Tepic, Nayarit, Mexico">Tepic, Nayarit, México</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" aria-labelledby="projects-title" class="projects">
+      <h2 id="projects-title" data-es="Proyectos destacados" data-en="Featured Projects">Proyectos destacados</h2>
+
+      <div class="grid">
+        <article class="card" aria-labelledby="p1">
+          <h3 id="p1">DULCE ABEJA</h3>
+          <p data-es="Desarrollo y diseño de un sitio conceptual para una marca de miel artesanal sostenible. Incluye tienda en línea, blog educativo y páginas de producto."
+             data-en="Design and development of a conceptual website for an artisanal, sustainable honey brand. Includes online store, educational blog, and product pages.">
+            Desarrollo y diseño de un sitio conceptual para una marca de miel artesanal sostenible. Incluye tienda en línea, blog educativo y páginas de producto.
+          </p>
+          <a class="pdf-link" id="p1-link" href="DulceAbeja.pdf" target="_blank" rel="noreferrer" data-es="Ver PDF del proyecto" data-en="View project PDF">Ver PDF del proyecto</a>
+        </article>
+
+        <article class="card" aria-labelledby="p2">
+          <h3 id="p2">URBAN AURA</h3>
+          <p data-es="Sitio conceptual para
