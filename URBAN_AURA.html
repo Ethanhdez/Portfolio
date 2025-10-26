@@ -1,227 +1,383 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ethan Hernández | Portfolio</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Urban Aura - Modern Clothing Store</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Bebas+Neue&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/scrollreveal"></script>
+
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Inter', sans-serif;
-      scroll-behavior: smooth;
+      font-family: 'Poppins', sans-serif;
     }
 
     body {
-      background: #0e0e11;
-      color: #e9e9ec;
+      color: #fff;
+      background-color: #111;
       line-height: 1.6;
     }
 
-    header {
+    /* Navbar */
+    .navbar {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1.5rem 4rem;
-      background: rgba(255,255,255,0.03);
-      backdrop-filter: blur(10px);
+      padding: 1rem 2rem;
+      background-color: #000;
       position: sticky;
       top: 0;
-      z-index: 100;
+      z-index: 1000;
     }
 
-    header h1 {
-      font-weight: 700;
-      color: #00b4d8;
+    .logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2rem;
+      color: #00d4ff;
+      letter-spacing: 2px;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 1.5rem;
     }
 
     nav a {
-      color: #e9e9ec;
+      color: #fff;
       text-decoration: none;
-      margin: 0 1rem;
       font-weight: 500;
-      transition: color 0.3s;
+      transition: color 0.3s ease;
     }
 
     nav a:hover {
-      color: #00b4d8;
+      color: #00d4ff;
     }
 
-    section {
-      padding: 4rem 10%;
+    .cart-btn {
+      background-color: #00d4ff;
+      color: #000;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.3s ease;
     }
 
-    .intro {
+    .cart-btn:hover {
+      background-color: #a855f7;
+      color: #fff;
+    }
+
+    /* Hero */
+    .hero {
+      height: 100vh;
+      background: url('https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
       display: flex;
-      flex-wrap: wrap;
       align-items: center;
       justify-content: center;
       text-align: center;
-      gap: 2rem;
     }
 
-    .intro img {
-      width: 180px;
-      height: 180px;
-      border-radius: 50%;
-      border: 3px solid #00b4d8;
+    .hero-content {
+      background: rgba(0, 0, 0, 0.6);
+      padding: 2rem;
+      border-radius: 1rem;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    .hero h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      color: #00d4ff;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .btn-primary {
+      background-color: #00d4ff;
+      color: #000;
+      padding: 0.75rem 1.5rem;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.3s ease;
+    }
+
+    .btn-primary:hover {
+      background-color: #a855f7;
+      color: #fff;
+    }
+
+    /* Collection */
+    .collection {
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    .collection h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.5rem;
+      color: #00d4ff;
+      margin-bottom: 2rem;
+    }
+
+    .products {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .product-card {
+      background-color: #000;
+      border-radius: 1rem;
+      overflow: hidden;
+      width: 300px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+      padding-bottom: 1rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 250px;
       object-fit: cover;
     }
 
-    .intro h2 {
-      font-size: 2rem;
-      margin-bottom: 0.5rem;
+    .product-card h3 {
+      margin: 1rem 0 0.5rem;
+      color: #fff;
+      font-size: 1.3rem;
     }
 
-    .intro p {
-      max-width: 600px;
-      margin: auto;
-    }
-
-    h3 {
-      margin-bottom: 1rem;
-      color: #00b4d8;
-    }
-
-    .skills, .projects {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-    }
-
-    .card {
-      background: rgba(255,255,255,0.05);
-      border-radius: 12px;
-      padding: 1.5rem;
-      transition: transform 0.3s;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-    }
-
-    .card h4 {
-      color: #00b4d8;
-      margin-bottom: 0.5rem;
-    }
-
-    .lang-toggle {
-      cursor: pointer;
-      color: #00b4d8;
-      font-size: 0.9rem;
-    }
-
-    footer {
-      text-align: center;
-      padding: 2rem;
-      border-top: 1px solid rgba(255,255,255,0.1);
+    .product-card p {
       color: #aaa;
-      font-size: 0.9rem;
+      margin-bottom: 1rem;
     }
 
-    a.pdf-link {
-      display: inline-block;
-      color: #00b4d8;
+    .btn-secondary {
+      background-color: #a855f7;
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .btn-secondary:hover {
+      background-color: #00d4ff;
+      color: #000;
+    }
+
+    /* About */
+    .about {
+      padding: 4rem 2rem;
+      text-align: center;
+      background-color: #111;
+    }
+
+    .about h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.5rem;
+      color: #00d4ff;
+      margin-bottom: 1.5rem;
+    }
+
+    .about p {
+      max-width: 700px;
+      margin: 0 auto;
+      color: #ccc;
+    }
+
+    /* Contact */
+    .contact {
+      padding: 4rem 2rem;
+      text-align: center;
+      background-color: #000;
+    }
+
+    .contact h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.5rem;
+      color: #00d4ff;
+      margin-bottom: 1.5rem;
+    }
+
+    .contact form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    .contact input,
+    .contact textarea {
+      width: 100%;
+      padding: 0.75rem;
+      border-radius: 10px;
+      border: none;
+      outline: none;
+      background-color: #111;
+      color: #fff;
+    }
+
+    .contact button {
+      margin-top: 1rem;
+    }
+
+    /* Footer */
+    .footer {
+      padding: 2rem;
+      text-align: center;
+      background-color: #000;
+    }
+
+    .social-links a {
+      margin: 0 1rem;
+      color: #00d4ff;
       text-decoration: none;
-      margin-top: 0.5rem;
-      font-size: 0.9rem;
+      transition: color 0.3s ease;
     }
 
-    a.pdf-link:hover {
-      text-decoration: underline;
+    .social-links a:hover {
+      color: #a855f7;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .products {
+        flex-direction: column;
+      }
+
+      nav ul {
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background-color: #000;
+        width: 200px;
+        display: none;
+      }
+
+      nav ul.show {
+        display: flex;
+      }
     }
   </style>
 </head>
+
 <body>
-  <header>
-    <h1>Ethan H.</h1>
+  <header class="navbar">
+    <div class="logo">Urban Aura</div>
     <nav>
-      <a href="#about">Sobre mí / About</a>
-      <a href="#projects">Proyectos / Projects</a>
-      <a href="#skills">Habilidades / Skills</a>
-      <a href="#contact">Contacto / Contact</a>
+      <ul>
+        <li><a href="#inicio">Home</a></li>
+        <li><a href="#coleccion">Collection</a></li>
+        <li><a href="#nosotros">About</a></li>
+        <li><a href="#contacto">Contact</a></li>
+      </ul>
     </nav>
-    <span class="lang-toggle" id="toggleLang">ES / EN</span>
+    <a href="#" class="cart-btn">Cart</a>
   </header>
 
-  <section id="about" class="intro">
-    <img src="photo.jpg" alt="Ethan Hernández photo">
-    <div>
-      <h2 id="intro-title">Hola, soy Ethan Hernández</h2>
-      <p id="intro-text">
-        Estudiante de programación especializado en desarrollo web full stack.  
-        Apasionado por la tecnología, la creatividad y el aprendizaje constante.  
-        /  
-        Programming student specializing in full stack web development.  
-        Passionate about technology, creativity, and continuous learning.
-      </p>
+  <section id="inicio" class="hero">
+    <div class="hero-content">
+      <h1>Express Yourself with Style</h1>
+      <p>Exclusive urban fashion for those seeking the premium.</p>
+      <a href="#coleccion" class="btn-primary">View Collection</a>
     </div>
   </section>
 
-  <section id="projects">
-    <h3>Proyectos / Projects</h3>
-    <div class="projects">
-      <div class="card">
-        <h4>DULCE ABEJA</h4>
-        <p>
-          Sitio conceptual para una marca de miel artesanal y sostenible.  
-          Incluye tienda en línea, blog educativo y diseño auténtico.  
-          /  
-          Concept website for an artisanal honey brand with an online store and educational blog.
-        </p>
-        <a class="pdf-link" href="DulceAbeja.pdf" target="_blank">📄 Ver PDF / View PDF</a>
+  <section id="coleccion" class="collection">
+    <h2>Our Collection</h2>
+    <div class="products">
+      <div class="product-card">
+        <img src="https://img.freepik.com/premium-photo/white-hoodie-mockup-template_639785-25813.jpg" alt="Hoodie">
+        <h3>Premium Hoodie</h3>
+        <p>$49.99</p>
+        <button class="btn-secondary">Add to Cart</button>
       </div>
-
-      <div class="card">
-        <h4>URBAN AURA</h4>
-        <p>
-          Página web para marca conceptual de moda urbana premium.  
-          Incluye catálogo, carrito de compras y diseño moderno.  
-          /  
-          Concept e-commerce for a premium urban fashion brand with modern design.
-        </p>
-        <a class="pdf-link" href="UrbanAura.pdf" target="_blank">📄 Ver PDF / View PDF</a>
+      <div class="product-card">
+        <img src="https://tse1.explicit.bing.net/th/id/OIP.SbIKY7gcHKQdC32pJcZYAgAAAA?cb=12&rs=1&pid=ImgDetMain&o=7&rm=3" alt="T-Shirt">
+        <h3>Urban T-Shirt</h3>
+        <p>$29.99</p>
+        <button class="btn-secondary">Add to Cart</button>
+      </div>
+      <div class="product-card">
+        <img src="https://kaspi.cl/wp-content/uploads/2023/02/hc-021_gorra_6_paneles_curvo_gamuza_gruesa_negro.jpg" alt="Cap">
+        <h3>Exclusive Suede Cap</h3>
+        <p>$19.99</p>
+        <button class="btn-secondary">Add to Cart</button>
       </div>
     </div>
   </section>
 
-  <section id="skills">
-    <h3>Habilidades / Skills</h3>
-    <div class="skills">
-      <div class="card"><h4>Frontend</h4><p>HTML, CSS, JavaScript</p></div>
-      <div class="card"><h4>Backend</h4><p>PHP, C++, Python (aprendiendo)</p></div>
-      <div class="card"><h4>Bases de datos</h4><p>MySQL</p></div>
-      <div class="card"><h4>Herramientas</h4><p>VS Code, WordPress, GitHub</p></div>
+  <section id="nosotros" class="about">
+    <h2>About Us</h2>
+    <p>Exclusive urban fashion. At Urban Aura, we blend street style with premium touches so you can express your unique aura in every outfit.</p>
+  </section>
+
+  <section id="contacto" class="contact">
+    <h2>Contact</h2>
+    <form action="#" method="post">
+      <input type="text" name="name" placeholder="Name" required>
+      <input type="email" name="email" placeholder="Email" required>
+      <textarea name="message" placeholder="Message" required></textarea>
+      <button type="submit" class="btn-primary">Send</button>
+    </form>
+  </section>
+
+  <footer class="footer">
+    <div class="social-links">
+      <a href="#" target="_blank">Instagram</a>
+      <a href="#" target="_blank">TikTok</a>
+      <a href="#" target="_blank">X</a>
     </div>
-  </section>
-
-  <section id="contact">
-    <h3>Contacto / Contact</h3>
-    <p>📧 <a href="mailto:ethanhdez.1304@icloud.com">ethanhdez.1304@icloud.com</a></p>
-    <p>🔗 LinkedIn: próximamente</p>
-  </section>
-
-  <footer>
-    © 2025 Ethan Hernández — Portfolio
+    <p>&copy; 2025 Urban Aura. All rights reserved.</p>
   </footer>
 
   <script>
-    // Simple bilingual toggle
-    const toggle = document.getElementById('toggleLang');
-    const introTitle = document.getElementById('intro-title');
-    const introText = document.getElementById('intro-text');
-    let lang = 'es';
+    // Animaciones de scroll
+    ScrollReveal().reveal('.hero-content', { delay: 200, distance: '50px', origin: 'left' });
+    ScrollReveal().reveal('.product-card', { delay: 300, interval: 200, distance: '50px', origin: 'bottom' });
+    ScrollReveal().reveal('.about, .contact', { delay: 400, distance: '50px', origin: 'top' });
 
-    toggle.addEventListener('click', () => {
-      lang = lang === 'es' ? 'en' : 'es';
-      if (lang === 'en') {
-        introTitle.textContent = "Hi, I'm Ethan Hernández";
-      } else {
-        introTitle.textContent = "Hola, soy Ethan Hernández";
-      }
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
     });
   </script>
 </body>
